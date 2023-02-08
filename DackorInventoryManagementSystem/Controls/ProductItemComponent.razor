@@ -1,4 +1,6 @@
-﻿@if (Product != null)
+﻿
+@inject NavigationManager NavigationManager
+@if (Product != null)
 {
 <tr>
     <td>@Product.ProductName</td>
@@ -19,6 +21,7 @@
 
     private void EditProduct(int productId)
     {
+        NavigationManager.NavigateTo($"/EditProduct/{productId}");
     }
 
     private void DeleteProduct(Product product)

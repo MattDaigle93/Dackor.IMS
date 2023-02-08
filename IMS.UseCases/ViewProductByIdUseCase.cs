@@ -9,18 +9,17 @@ using System.Threading.Tasks;
 
 namespace IMS.UseCases
 {
-    public class ViewProductsByNameUseCase : IViewProductsByNameUseCase
+    public class ViewProductByIdUseCase : IViewProductByIdUseCase
     {
         private readonly IProductRepository productRepository;
 
-        public ViewProductsByNameUseCase(IProductRepository productRepository)
+        public ViewProductByIdUseCase(IProductRepository productRepository)
         {
             this.productRepository = productRepository;
         }
-
-        public async Task<List<Product>> ExecuteAsync(string name = "")
+        public async Task<Product> ExecuteAsync(int productId)
         {
-            return await productRepository.GetProductsByNameAsync(name);
+            return await this.productRepository.GetProductByIdAsync(productId);
         }
     }
 }
