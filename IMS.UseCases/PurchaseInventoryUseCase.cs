@@ -23,7 +23,7 @@ namespace IMS.UseCases
 
         public IInventoryRepository InventoryRepository { get; }
 
-        public async Task ExecuteAsync(string poNumber, Inventory inventory, int quantity, double price, string doneBy)
+        public async Task ExecuteAsync(string poNumber, Inventory inventory, int quantity, string doneBy)
         {
             await this.inventoryTransactionRepository.PurchaseAsync(poNumber, inventory, quantity, inventory.Price, doneBy);
 

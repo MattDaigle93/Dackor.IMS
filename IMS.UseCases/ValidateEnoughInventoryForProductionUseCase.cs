@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace IMS.UseCases
 {
-    public class ValidateEnoughInventoryForProductionUseCase
+    public class ValidateEnoughInventoryForProductionUseCase : IValidateEnoughInventoryForProductionUseCase
     {
         private readonly IProductRepository productRepository;
 
@@ -19,7 +19,7 @@ namespace IMS.UseCases
         public async Task<bool> ExecuteAsync(Product product, int quantity)
         {
             var prod = await productRepository.GetProductByIdAsync(product.ProductId);
-            foreach(var pi in prod.ProductInventories)
+            foreach (var pi in prod.ProductInventories)
             {
                 if (pi.InventoryQuantity * quantity > pi.Inventory.Quantity)
                     return false;

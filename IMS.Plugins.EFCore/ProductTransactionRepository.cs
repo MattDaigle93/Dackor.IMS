@@ -13,12 +13,17 @@ namespace IMS.Plugins.EFCore
     {
         private readonly IMSContext db;
 
-        public ProductTransactionRepository(IMSContext db)
+        public ProductTransactionRepository(IMSContext db, IProductRepository productRepository)
         {
             this.db = db;
+            ProductRepository = productRepository;
         }
+
+        public IProductRepository ProductRepository { get; }
+
         public async Task ProduceAsync(string productionNumber, Product product, int quantity, double price, string doneBy)
         {
+            //var prod = this.ProductRepository.GetProductByIdAsync(product.ProductId);
             var prod = await db.Products
                 .Include(x => x.ProductInventories)
                 .ThenInclude(x => x.Inventory)

@@ -4,6 +4,6 @@ namespace IMS.UseCases.Interfaces
 {
     public interface IPurchaseInventoryUseCase
     {
-        Task ExecuteAsync(string poNumber, Inventory inventory, int quantity, double price, string doneBy);
+        Task ExecuteAsync(string poNumber, Inventory inventory, int quantity, string doneBy);
     }
 }
