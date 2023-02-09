@@ -1,10 +1,10 @@
 using DackorInventoryManagementSystem.Areas.Identity;
 using DackorInventoryManagementSystem.Data;
 using IMS.Plugins.EFCore;
-using IMS.UseCases;
 using IMS.UseCases.Interfaces;
 using IMS.UseCases.Inventories;
 using IMS.UseCases.PluginInterfaces;
+using IMS.UseCases.Products;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
@@ -44,6 +44,7 @@ builder.Services.AddTransient<IViewProductsByNameUseCase, ViewProductsByNameUseC
 builder.Services.AddTransient<IAddProductUseCase, AddProductUseCase>();
 builder.Services.AddTransient<IViewProductByIdUseCase, ViewProductByIdUseCase>();
 builder.Services.AddTransient<IEditProductUseCase, EditProductUseCase>();
+builder.Services.AddTransient<IDeleteProductUseCase, DeleteProductUseCase>();
 
 var app = builder.Build();
 

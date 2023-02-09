@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IMS.UseCases
+namespace IMS.UseCases.Products
 {
     public class EditProductUseCase : IEditProductUseCase
     {
@@ -19,7 +19,7 @@ namespace IMS.UseCases
         }
         public async Task ExecuteAsync(Product product)
         {
-            this.productRepository.UpdateProductAsync(product);
+            productRepository.UpdateProductAsync(product);
         }
     }
 }

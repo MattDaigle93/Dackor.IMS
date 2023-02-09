@@ -7,19 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IMS.UseCases
+namespace IMS.UseCases.Products
 {
-    public class ViewProductByIdUseCase : IViewProductByIdUseCase
+    public class ViewProductsByNameUseCase : IViewProductsByNameUseCase
     {
         private readonly IProductRepository productRepository;
 
-        public ViewProductByIdUseCase(IProductRepository productRepository)
+        public ViewProductsByNameUseCase(IProductRepository productRepository)
         {
             this.productRepository = productRepository;
         }
-        public async Task<Product> ExecuteAsync(int productId)
+
+        public async Task<List<Product>> ExecuteAsync(string name = "")
         {
-            return await this.productRepository.GetProductByIdAsync(productId);
+            return await productRepository.GetProductsByNameAsync(name);
         }
     }
 }
