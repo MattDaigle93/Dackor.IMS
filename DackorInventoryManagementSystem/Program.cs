@@ -2,10 +2,13 @@ using DackorInventoryManagementSystem.Areas.Identity;
 using DackorInventoryManagementSystem.Data;
 using IMS.Plugins.EFCore;
 using IMS.UseCases;
+using IMS.UseCases.Activities;
 using IMS.UseCases.Interfaces;
 using IMS.UseCases.Inventories;
 using IMS.UseCases.PluginInterfaces;
 using IMS.UseCases.Products;
+using IMS.UseCases.Reports;
+using IMS.UseCases.Validations;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
@@ -52,6 +55,8 @@ builder.Services.AddTransient<IPurchaseInventoryUseCase, PurchaseInventoryUseCas
 builder.Services.AddTransient<IValidateEnoughInventoryForProductionUseCase, ValidateEnoughInventoryForProductionUseCase>();
 builder.Services.AddTransient<IProduceProductUseCase, ProduceProductUseCase>();
 builder.Services.AddTransient<ISellProductUseCase, SellProductUseCase>();
+builder.Services.AddTransient<ISearchInventoryTransactionsUseCase, SearchInventoryTransactionsUseCase>();
+builder.Services.AddTransient<ISearchProductTransactionUseCase, SearchProductTransactionUseCase>();
 
 var app = builder.Build();
 

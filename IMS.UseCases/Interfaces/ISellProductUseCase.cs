@@ -1,7 +1,7 @@
 ﻿using IMS.CoreBusiness;
 using IMS.UseCases.PluginInterfaces;
 
-namespace IMS.UseCases
+namespace IMS.UseCases.Interfaces
 {
     public interface ISellProductUseCase
     {

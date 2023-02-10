@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IMS.UseCases
+namespace IMS.UseCases.Validations
 {
     public class ValidateEnoughInventoryForProductionUseCase : IValidateEnoughInventoryForProductionUseCase
     {
