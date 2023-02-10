@@ -2,10 +2,10 @@
 
 namespace DackorInventoryManagementSystem.ViewModels
 {
-    public class ProduceViewModel
+    public class SellViewModel
     {
-        [Required(ErrorMessage = "Please enter a Production Number.")]
-        public string ProductionNumber { get; set; }
+        [Required(ErrorMessage = "Please enter a Sales Order Number.")]
+        public string SalesOrderNumber { get; set; }
 
         [Required]
         public int ProductId { get; set; }
@@ -15,8 +15,10 @@ namespace DackorInventoryManagementSystem.ViewModels
 
         [Required]
         [Range(minimum: 1, maximum: int.MaxValue, ErrorMessage = "Quantity must be greater than 0.")]
-        public int QuantityToProduce { get; set; }
+        public int QuantityToSell { get; set; }
 
+        /*[Required]
+        [Range(minimum: 1, maximum: int.MaxValue, ErrorMessage = "Price must be greater than 0.")]*/
         public double ProductPrice { get; set; }
     }
 }
