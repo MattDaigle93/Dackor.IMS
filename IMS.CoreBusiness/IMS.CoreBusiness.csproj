@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Syncfusion.Blazor.DropDowns" Version="20.4.0.49" />
+    <PackageReference Include="Syncfusion.Blazor.SplitButtons" Version="20.4.0.49" />
+  </ItemGroup>
+
 </Project>

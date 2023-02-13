@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
+using Syncfusion.Blazor;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,6 +31,8 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
 builder.Services.AddSingleton<WeatherForecastService>();
+
+Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Mgo+DSMBaFt/QHRqVVhkVFpHaV5HQmFJfFBmRGNTflZ6cFxWESFaRnZdQV1hSH1SdkRrXH9ceXNR;Mgo+DSMBPh8sVXJ0S0J+XE9AflRBQmJMYVF2R2BJfl56dV1MZFVBNQtUQF1hSn5Rd0ZiWX5WdXRWR2FZ;ORg4AjUWIQA/Gnt2VVhkQlFacldJXnxIe0x0RWFab19wflROalhYVAciSV9jS31TdERgWH9feHFVRWJZVA==;MTEyMDg5MUAzMjMwMmUzNDJlMzBGTlhUQXRpTGs2SUFrVXRCSi9LVlB3bEEzdWFiN1lSYmhaY2o5Q1VKZHdrPQ==;MTEyMDg5MkAzMjMwMmUzNDJlMzBCeU9IMWVUWXBpbWxYSmVhczh3a1N5aWpwMG1KSTlGdUIwakRneWdsbS9RPQ==;NRAiBiAaIQQuGjN/V0Z+WE9EaFtKVmBWf1ZpR2NbfE5xdF9HaFZVTWYuP1ZhSXxQdkdiWn5ecXxQRmNUUkQ=;MTEyMDg5NEAzMjMwMmUzNDJlMzBBa0V5WTIvaWN4N0dkUmNicjVqN09sU0d2RE00RUlBOVJoRVVtWGc0Wjc4PQ==;MTEyMDg5NUAzMjMwMmUzNDJlMzBTWFNWbzNOYUVyREtaQ2RrbXlCazY2NVZKYU8wbEx1a1JjSHJITkdvbFVrPQ==;Mgo+DSMBMAY9C3t2VVhkQlFacldJXnxIe0x0RWFab19wflROalhYVAciSV9jS31TdERgWH9feHFVQmRdVA==;MTEyMDg5N0AzMjMwMmUzNDJlMzBlV3kvOFZMdm1BNUdYZVc1NGV3Zjd1RENIWis3WUMxUVcyakx4aTVSRHBFPQ==;MTEyMDg5OEAzMjMwMmUzNDJlMzBBR2ZRSTUyVXhmWnB2QVBFV3N0Z3g3cDVmYmpROXBQWWlGMFgvSWR2cUpJPQ==;MTEyMDg5OUAzMjMwMmUzNDJlMzBBa0V5WTIvaWN4N0dkUmNicjVqN09sU0d2RE00RUlBOVJoRVVtWGc0Wjc4PQ==");
 
 builder.Services.AddDbContext<IMSContext>(options =>
 {
@@ -58,6 +61,8 @@ builder.Services.AddTransient<IProduceProductUseCase, ProduceProductUseCase>();
 builder.Services.AddTransient<ISellProductUseCase, SellProductUseCase>();
 builder.Services.AddTransient<ISearchInventoryTransactionsUseCase, SearchInventoryTransactionsUseCase>();
 builder.Services.AddTransient<ISearchProductTransactionUseCase, SearchProductTransactionUseCase>();
+
+builder.Services.AddSyncfusionBlazor();
 
 var app = builder.Build();
 

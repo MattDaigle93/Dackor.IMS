@@ -1,6 +1,6 @@
 ﻿@page "/addinventory"
 
-@attribute [Authorize]
+@*@attribute [Authorize]*@
 
 @inject IAddInventoryUseCase AddInventoryUseCase
 @inject NavigationManager NavigationManager
@@ -27,6 +27,19 @@
             <lable for="price">Price</lable>
             <InputNumber id="price" @bind-Value="inventory.Price" class="form-control"></InputNumber>
         </div>
+
+        <div class="form-group">
+            <lable for="size">Size</lable>
+            <InputText id="size" @bind-Value="inventory.Size" class="form-control"></InputText>
+            <SfDropDownButton Context="@ButtonContent">
+                <DropDownMenuItems>
+                    <DropDownMenuItem Text="Letter"></DropDownMenuItem>
+                    <DropDownMenuItem Text="Swatch"></DropDownMenuItem>
+                    <DropDownMenuItem Text="14 x 17"></DropDownMenuItem>
+                </DropDownMenuItems>
+            </SfDropDownButton>
+        </div>
+        
         <br/>
         <button type="submit" class="btn btn-primary">Save</button>
     </EditForm>
@@ -50,4 +63,6 @@
             NavigationManager.NavigateTo("/inventories");
         }
     }
+
+    public string ButtonContent = "Options";
 }

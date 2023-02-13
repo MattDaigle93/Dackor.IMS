@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Syncfusion.Blazor.DropDowns" Version="20.4.0.49" />
+    <PackageReference Include="Syncfusion.Blazor.SplitButtons" Version="20.4.0.49" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\IMS.CoreBusiness\IMS.CoreBusiness.csproj" />
   </ItemGroup>
 
