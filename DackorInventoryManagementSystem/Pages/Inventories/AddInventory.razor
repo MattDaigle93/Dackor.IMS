@@ -15,32 +15,32 @@
 
         <div class="form-group">
             <lable for="name">Inventory Name</lable>
-            <InputText id="name" @bind-Value="inventory.InventoryName" class="form-control"></InputText>
+            <InputText style="width: 300px" id="name" @bind-Value="inventory.InventoryName" class="form-control"></InputText>
         </div>
 
         <div class="form-group">
             <lable for="qty">Quantity</lable>
-            <InputNumber id="qty" @bind-Value="inventory.Quantity" class="form-control"></InputNumber>
+            <InputNumber style="width: 300px" id="qty" @bind-Value="inventory.Quantity" class="form-control"></InputNumber>
         </div>
 
         <div class="form-group">
             <lable for="price">Price</lable>
-            <InputNumber id="price" @bind-Value="inventory.Price" class="form-control"></InputNumber>
+            <InputNumber style="width: 300px" id="price" @bind-Value="inventory.Price" class="form-control"></InputNumber>
         </div>
-
-        <div class="form-group">
-            <lable for="size">Size</lable>
-            <InputText id="size" @bind-Value="inventory.Size" class="form-control"></InputText>
-            <SfDropDownButton Context="@ButtonContent">
-                <DropDownMenuItems>
-                    <DropDownMenuItem Text="Letter"></DropDownMenuItem>
-                    <DropDownMenuItem Text="Swatch"></DropDownMenuItem>
-                    <DropDownMenuItem Text="14 x 17"></DropDownMenuItem>
-                </DropDownMenuItems>
-            </SfDropDownButton>
-        </div>
-        
+       
         <br/>
+            <InputRadioGroup @bind-Value="@inventory.Size">
+                Sample Size:
+                <br/>
+                @foreach (var size in Sizes)
+                {
+                    <InputRadio Value="size"/>
+                    @size
+                    <br/>
+                }
+            </InputRadioGroup>
+        <br/>
+
         <button type="submit" class="btn btn-primary">Save</button>
     </EditForm>
 }
@@ -64,5 +64,6 @@
         }
     }
 
-    public string ButtonContent = "Options";
+    List<string> Sizes = new List<string> { "Letter Sample", "Swatch Sample", "14 x 17 Sample" };
+
 }

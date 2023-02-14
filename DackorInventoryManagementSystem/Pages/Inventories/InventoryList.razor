@@ -16,7 +16,7 @@
         <thead>
             <tr>
                 <th>Name</th>
-                <th width="200px"; align="right">Quantity</th>
+                <th width="200px">Quantity</th>
                 <th width="200px">Price</th>
                 <th width="200px">Size</th>
                 <th></th>
@@ -25,7 +25,10 @@
         <tbody>
             @foreach(var inv in this.listInventories)
             {
-                <InventoryItemComponent Inventory="inv"></InventoryItemComponent>
+                <InventoryItemComponent 
+                    Inventory="inv"
+                    OnInventoryDeleted="OnInventoryDeleted"
+                ></InventoryItemComponent>
             }
         </tbody>
     </table>
@@ -51,6 +54,11 @@
     private void AddInventory()
     {
         NavigationManager.NavigateTo("/addinventory");
+    }
+
+    private async Task OnInventoryDeleted()
+    {
+        await OnInitializedAsync();
     }
 
 }

@@ -1,7 +1,7 @@
 ﻿@using IMS.CoreBusiness
 @inject IViewInventoriesByNameUseCase ViewInventoriesByNameUseCase
 
-<div class="input-group">
+<div style="width:600px" class="input-group">
     <input type="text"
         class="form-control form-control-lg"
         placeholder="Type inentory name here to search"
@@ -15,7 +15,7 @@
     && _inventories != null
     && selectedInventory == null)
 {
-    <div style="overflow-y:auto; max-height:300px; border:1px solid silver; padding-top:5px">
+    <div style="overflow-y:auto; max-height:300px; max-width:600px; border:1px solid silver; padding-top:5px">
         <ul style="list-style-type:none">
             @foreach(var inv in _inventories)
             {
