@@ -15,12 +15,12 @@
         <DataAnnotationsValidator></DataAnnotationsValidator>
         <ValidationSummary></ValidationSummary>
 
-        <div class="form-group">
+        <div style="width:600px" class="form-group">
             <lable for="po">Purchase Order</lable>
             <InputText id="po" @bind-Value="purchaseViewModel.PurchaseOrder" class="form-control"></InputText>
         </div>
 
-        <div class="form-group">
+        <div style="width:600px" class="form-group">
             <lable for="inv">Inventory to Purchase</lable>
             <ViewInventoriesComponent 
                 OnSelectInventory="OnSelectInventory"
@@ -37,7 +37,7 @@
 
         </div>
 
-        <div class="form-group">
+        <div style="width:600px" class="form-group">
             <lable for="qty">Quantity</lable>
             <InputNumber id="qty" @bind-Value="purchaseViewModel.QuantityToPurchase" class="form-control"></InputNumber>
         </div>
