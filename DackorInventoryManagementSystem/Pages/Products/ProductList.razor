@@ -7,18 +7,20 @@
 
 <h3>Product List</h3>
 <br/>
-
-<ViewProductsComponent OnSearchProducts="OnSearchProducts"></ViewProductsComponent>
+<ViewProductsComponent 
+    OnSearchProducts="OnSearchProducts">
+</ViewProductsComponent>
+<br/>
 
 @if (listProducts != null)
 {
-    <table class="table">
+    <table style="width:75%" class="table">
         <thead>
             <tr>
-                <th>Name</th>
+                <th width ="400px">Name</th>
                 <th width ="200px">Quantity</th>
                 <th width ="200px">Price</th>
-                <th width ="400px"></th>
+                <th width ="200px"></th>
             </tr>
         </thead>
         <tbody>
