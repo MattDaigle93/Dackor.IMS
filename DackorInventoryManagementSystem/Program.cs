@@ -61,6 +61,7 @@ builder.Services.AddTransient<IProduceProductUseCase, ProduceProductUseCase>();
 builder.Services.AddTransient<ISellProductUseCase, SellProductUseCase>();
 builder.Services.AddTransient<ISearchInventoryTransactionsUseCase, SearchInventoryTransactionsUseCase>();
 builder.Services.AddTransient<ISearchProductTransactionUseCase, SearchProductTransactionUseCase>();
+builder.Services.AddTransient<IDeleteInventoryUseCase, DeleteInventoryUseCase>();
 
 builder.Services.AddSyncfusionBlazor();
 

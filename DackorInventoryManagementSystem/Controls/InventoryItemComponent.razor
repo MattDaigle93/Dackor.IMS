@@ -1,4 +1,5 @@
 ﻿@inject NavigationManager NavigationManager
+@inject IDeleteInventoryUseCase DeleteInventoryUseCase
 
 @if (Inventory != null)
 {
@@ -9,7 +10,7 @@
         <td>@Inventory.Size</td>
         <td>
             <button type="button" class="btn btn-light" @onclick="@(()=> EditInventory(Inventory.InventoryId))">Edit</button>
-            @*<button type="button" class="btn btn-light" @onclick="@(async ()=> await DeleteInventory(Inventory.InventoryId))">Delete</button>*@
+            <button type="button" class="btn btn-light" @onclick="@(async ()=> await DeleteInventory(Inventory))">Delete</button>
         </td>
     </tr>
 }
@@ -27,10 +28,10 @@
         NavigationManager.NavigateTo($"/editinventory/{invId}");
     }
 
-   /*private async Task DeleteInventory(Inventory inventory)
+   private async Task DeleteInventory(Inventory inventory)
     {
         await DeleteInventoryUseCase.ExecuteAsync(inventory.InventoryId);
 
         await OnInventoryDeleted.InvokeAsync();
-    }*/
+    }
 }

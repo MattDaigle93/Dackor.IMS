@@ -1,6 +1,7 @@
 ﻿using IMS.CoreBusiness;
 using IMS.UseCases.PluginInterfaces;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Scaffolding.Metadata;
 
 namespace IMS.Plugins.EFCore
 {
@@ -14,7 +15,9 @@ namespace IMS.Plugins.EFCore
         }
         public async Task<IEnumerable<Inventory>> GetInventoriesByName(string name)
         {
-            return await this.db.Inventories.Where(x => x.InventoryName.ToLower().IndexOf(name.ToLower()) >= 0).ToListAsync();
+            return await this.db.Inventories.Where(x => (x.InventoryName.ToLower().IndexOf(name.ToLower()) >= 0 || 
+                                                    string.IsNullOrWhiteSpace(name)) &&
+                                                    x.IsItemActive == true).ToListAsync();
 
             //return await this.db.Inventories.Where(x => x.InventoryName.Contains(name, StringComparison.OrdinalIgnoreCase) ||
             //string.IsNullOrWhiteSpace(name));.ToListAsync();
@@ -53,6 +56,16 @@ namespace IMS.Plugins.EFCore
         public async Task<Inventory?> GetInventoryByIdAsync(int inventoryId)
         {
             return await this.db.Inventories.FindAsync(inventoryId);
+        }
+
+        public async Task DeleteInventoryAsync(int inventoryId)
+        {
+            var inventory = await db.Inventories.FindAsync(inventoryId);
+            if (inventory != null)
+            {
+                inventory.IsItemActive = false;
+                await db.SaveChangesAsync();
+            }
         }
     }
 }

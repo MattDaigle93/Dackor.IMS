@@ -51,14 +51,13 @@
 
 @code {
     private ProduceViewModel produceViewModel = new ProduceViewModel();
-    private Product selectedProduct;
+    private Product? selectedProduct;
     private string errorMessage;
 
     private async Task OnValidSubmit()
     {
         if (!await ValidateEnoughInventoryForProductionUseCase.ExecuteAsync(this.selectedProduct, this.produceViewModel.QuantityToProduce))
         {
-            //shows error message
             errorMessage = $"The inventories are not enough for producing {this.selectedProduct.ProductName} {this.produceViewModel.QuantityToProduce} times";
 
             return;

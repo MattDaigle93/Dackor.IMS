@@ -40,7 +40,9 @@ namespace IMS.Plugins.EFCore
 
         public async Task<Product?> GetProductByIdAsync(int productId)
         {
-            return await this.db.Products.FindAsync(productId);
+            return await this.db.Products.Include(x => x.ProductInventories)
+                    .ThenInclude(x => x.Inventory)
+                    .FirstOrDefaultAsync(x => x.ProductId == productId);
         }
 
         public async Task<List<Product>> GetProductsByNameAsync(string name)

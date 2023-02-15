@@ -27,6 +27,7 @@
             {
                 <InventoryItemComponent 
                     Inventory="inv"
+                    OnInventoryDeleted="DeleteInventory"
                 ></InventoryItemComponent>
             }
         </tbody>
@@ -40,9 +41,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        var invs = await ViewInventoriesByNameCase.ExcecuteAsync();
-        this.listInventories = invs.ToList();
-
+        await LoadInventories();
     }
 
     private void OnSearchInventoires(List<Inventory> inventories)
@@ -55,4 +54,14 @@
         NavigationManager.NavigateTo("/addinventory");
     }
 
+    private async Task DeleteInventory()
+    {
+        await LoadInventories();
+    }
+
+    private async Task LoadInventories()
+    {
+        var invs = await ViewInventoriesByNameCase.ExcecuteAsync();
+        this.listInventories = invs.ToList();
+    }
 }

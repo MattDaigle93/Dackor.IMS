@@ -20,8 +20,6 @@ namespace IMS.Plugins.EFCore
             this.productRepository = productRepository;
         }
 
-        public IProductRepository ProductRepository { get; }
-
         public async Task<IEnumerable<ProductTransaction>> GetProductTransactionsAsync(
             string productName, 
             DateTime? dateFrom, 
@@ -44,16 +42,12 @@ namespace IMS.Plugins.EFCore
         public async Task ProduceAsync(string productionNumber, Product product, int quantity, double price, string doneBy)
         {
             var prod = await this.productRepository.GetProductByIdAsync(product.ProductId);
-            /*var prod = await db.Products
-                .Include(x => x.ProductInventories)
-                .ThenInclude(x => x.Inventory)
-                .FirstOrDefaultAsync(x => x.ProductId == product.ProductId);*/
             if (prod != null)
             {
-                foreach(var pi in prod.ProductInventories)
+                foreach (var pi in prod.ProductInventories)
                 {
                     int qtyBefore = pi.Inventory.Quantity;
-                    pi.Inventory.Quantity -= quantity * pi.InventoryQuantity;
+                    pi.Inventory.Quantity -= quantity * pi.InventoryQuantity;                    
 
                     this.db.InventoryTransactions.Add(new InventoryTransaction
                     {
@@ -64,11 +58,11 @@ namespace IMS.Plugins.EFCore
                         QuantityAfter = pi.Inventory.Quantity,
                         TransactionDate = DateTime.Now,
                         DoneBy = doneBy,
-                        UnitPrice = price,
+                        UnitPrice = price
                     });
                 }
             }
-                        
+
             this.db.ProductTransactions.Add(new ProductTransaction
             {
                 ProductionNumber = productionNumber,

@@ -34,8 +34,7 @@ namespace IMS.CoreBusiness
         public bool ValidatePricing()
         {
             if (ProductInventories == null || ProductInventories.Count <= 0) return true;
-
-            
+           
             if (this.TotalInventoryCost() > Price) return false;
 
             return true;

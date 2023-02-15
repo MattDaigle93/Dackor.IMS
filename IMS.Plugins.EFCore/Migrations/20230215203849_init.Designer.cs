@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IMS.Plugins.EFCore.Migrations
 {
     [DbContext(typeof(IMSContext))]
-    [Migration("20230213153539_init2")]
-    partial class init2
+    [Migration("20230215203849_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -36,6 +36,9 @@ namespace IMS.Plugins.EFCore.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsItemActive")
+                        .HasColumnType("bit");
+
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
@@ -55,6 +58,7 @@ namespace IMS.Plugins.EFCore.Migrations
                         {
                             InventoryId = 1,
                             InventoryName = "Gas Engine",
+                            IsItemActive = true,
                             Price = 1000.0,
                             Quantity = 1,
                             Size = "Letter"
@@ -63,6 +67,7 @@ namespace IMS.Plugins.EFCore.Migrations
                         {
                             InventoryId = 2,
                             InventoryName = "Body",
+                            IsItemActive = true,
                             Price = 400.0,
                             Quantity = 1,
                             Size = "Letter"
@@ -71,6 +76,7 @@ namespace IMS.Plugins.EFCore.Migrations
                         {
                             InventoryId = 3,
                             InventoryName = "Wheels",
+                            IsItemActive = true,
                             Price = 100.0,
                             Quantity = 4,
                             Size = "Letter"
@@ -79,6 +85,7 @@ namespace IMS.Plugins.EFCore.Migrations
                         {
                             InventoryId = 4,
                             InventoryName = "Seats",
+                            IsItemActive = true,
                             Price = 50.0,
                             Quantity = 5,
                             Size = "Letter"
@@ -87,6 +94,7 @@ namespace IMS.Plugins.EFCore.Migrations
                         {
                             InventoryId = 5,
                             InventoryName = "Electric Engine",
+                            IsItemActive = true,
                             Price = 8000.0,
                             Quantity = 2,
                             Size = "Letter"
@@ -95,6 +103,7 @@ namespace IMS.Plugins.EFCore.Migrations
                         {
                             InventoryId = 6,
                             InventoryName = "Battery",
+                            IsItemActive = true,
                             Price = 400.0,
                             Quantity = 5,
                             Size = "Letter"

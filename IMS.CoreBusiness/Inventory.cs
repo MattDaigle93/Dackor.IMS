@@ -18,6 +18,8 @@ namespace IMS.CoreBusiness
         [Required(ErrorMessage = "Please Select a Size.")]
         public string Size { get; set; }
 
+        public bool IsItemActive { get; set; } = true;
+
         public List<ProductInventory>? ProductInventories { get; set; }
     }
 }

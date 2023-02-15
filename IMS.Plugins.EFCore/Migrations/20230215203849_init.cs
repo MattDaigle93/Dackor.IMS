@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace IMS.Plugins.EFCore.Migrations
 {
-    public partial class Init : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -17,7 +17,9 @@ namespace IMS.Plugins.EFCore.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     InventoryName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Quantity = table.Column<int>(type: "int", nullable: false),
-                    Price = table.Column<double>(type: "float", nullable: false)
+                    Price = table.Column<double>(type: "float", nullable: false),
+                    Size = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    IsItemActive = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -121,15 +123,15 @@ namespace IMS.Plugins.EFCore.Migrations
 
             migrationBuilder.InsertData(
                 table: "Inventories",
-                columns: new[] { "InventoryId", "InventoryName", "Price", "Quantity" },
+                columns: new[] { "InventoryId", "InventoryName", "IsItemActive", "Price", "Quantity", "Size" },
                 values: new object[,]
                 {
-                    { 1, "Gas Engine", 1000.0, 1 },
-                    { 2, "Body", 400.0, 1 },
-                    { 3, "Wheels", 100.0, 4 },
-                    { 4, "Seats", 50.0, 5 },
-                    { 5, "Electric Engine", 8000.0, 2 },
-                    { 6, "Battery", 400.0, 5 }
+                    { 1, "Gas Engine", true, 1000.0, 1, "Letter" },
+                    { 2, "Body", true, 400.0, 1, "Letter" },
+                    { 3, "Wheels", true, 100.0, 4, "Letter" },
+                    { 4, "Seats", true, 50.0, 5, "Letter" },
+                    { 5, "Electric Engine", true, 8000.0, 2, "Letter" },
+                    { 6, "Battery", true, 400.0, 5, "Letter" }
                 });
 
             migrationBuilder.InsertData(
