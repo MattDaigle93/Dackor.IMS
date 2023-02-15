@@ -18,7 +18,7 @@ namespace IMS.UseCases.Products
         }
         public async Task ExecuteAsync(int productId)
         {
-            await productRepository.DeleteProductAsync(productId);
+            await this.productRepository.DeleteProductAsync(productId);
         }
     }
 }

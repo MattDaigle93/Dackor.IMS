@@ -12,7 +12,7 @@ namespace IMS.CoreBusiness
     {
         public int ProductId { get; set; }
 
-        [Required(ErrorMessage = " The Product Name field is required.")]
+        [Required(ErrorMessage = "The Product Name field is required.")]
         public string ProductName { get; set; } = string.Empty; 
 
         [Range(0, int.MaxValue, ErrorMessage = "Quantity must be greater than or equal to {0}")]

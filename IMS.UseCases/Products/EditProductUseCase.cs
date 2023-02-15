@@ -19,7 +19,7 @@ namespace IMS.UseCases.Products
         }
         public async Task ExecuteAsync(Product product)
         {
-            productRepository.UpdateProductAsync(product);
+            await this.productRepository.UpdateProductAsync(product);
         }
     }
 }

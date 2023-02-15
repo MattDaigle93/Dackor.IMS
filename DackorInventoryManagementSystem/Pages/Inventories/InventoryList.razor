@@ -6,8 +6,7 @@
 <h3>Inventory List</h3>
 <br/>
 <ViewInventoriesComponent 
-    OnSearchInventories="OnSearchInventoires"
-    DisplaySearchResult="true">
+    OnSearchInventories="OnSearchInventoires">
 </ViewInventoriesComponent>
 <br/>
 @if (listInventories != null)
@@ -27,7 +26,6 @@
             {
                 <InventoryItemComponent 
                     Inventory="inv"
-                    OnInventoryDeleted="OnInventoryDeleted"
                 ></InventoryItemComponent>
             }
         </tbody>
@@ -54,11 +52,6 @@
     private void AddInventory()
     {
         NavigationManager.NavigateTo("/addinventory");
-    }
-
-    private async Task OnInventoryDeleted()
-    {
-        await OnInitializedAsync();
     }
 
 }

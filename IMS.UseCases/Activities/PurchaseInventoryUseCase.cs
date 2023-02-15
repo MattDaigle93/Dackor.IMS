@@ -7,29 +7,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IMS.UseCases.Activities
+namespace IMS.UseCases
 {
     public class PurchaseInventoryUseCase : IPurchaseInventoryUseCase
     {
         private readonly IInventoryTransactionRepository inventoryTransactionRepository;
+        private readonly IInventoryRepository inventoryRepository;
 
         public PurchaseInventoryUseCase(
             IInventoryTransactionRepository inventoryTransactionRepository,
             IInventoryRepository inventoryRepository)
         {
             this.inventoryTransactionRepository = inventoryTransactionRepository;
-            InventoryRepository = inventoryRepository;
+            this.inventoryRepository = inventoryRepository;
         }
-
-        public IInventoryRepository InventoryRepository { get; }
 
         public async Task ExecuteAsync(string poNumber, Inventory inventory, int quantity, string doneBy)
         {
-            await inventoryTransactionRepository.PurchaseAsync(poNumber, inventory, quantity, inventory.Price, doneBy);
+            await this.inventoryTransactionRepository.PurchaseAsync(poNumber, inventory, quantity, inventory.Price, doneBy);
 
-            //increases inventory quantity
             inventory.Quantity += quantity;
-            await InventoryRepository.UpdateInventoryAsync(inventory);
+            await this.inventoryRepository.UpdateInventoryAsync(inventory);
         }
     }
 }

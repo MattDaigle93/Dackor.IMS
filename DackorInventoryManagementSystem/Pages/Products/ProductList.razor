@@ -22,10 +22,10 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var product in this.listProducts)
+            @foreach (var prod in this.listProducts)
             {
                 <ProductItemComponent 
-                    Product="product"
+                    Product="prod"
                     OnProductDeleted="OnProductDeleted"
                 ></ProductItemComponent>
             }

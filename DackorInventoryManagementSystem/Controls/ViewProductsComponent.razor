@@ -17,10 +17,10 @@
 {
     <div style="overflow-y:auto; max-height:300px; border:1px solid silver; padding-top:5px">
         <ul style="list-style-type:none">
-            @foreach (var inv in _products)
+            @foreach (var prod in _products)
             {
-                <li style="cursor:pointer" @onclick="@(async() => {await SelectProduct(inv); })"
-            @key="inv.ProductId">@inv.ProductName</li>
+                <li style="cursor:pointer" @onclick="@(async() => {await SelectProduct(prod); })"
+            @key="prod.ProductId">@prod.ProductName</li>
             }
         </ul>
     </div>
@@ -28,36 +28,38 @@
 
 
 @code {
-    private string? _productNameToSearch;
-    public string productNameToSearch 
-    { 
-        get => _productNameToSearch; 
+    private string? _productNameToSearch;   
+    public string productNameToSearch
+    {
+        get => _productNameToSearch;
         set
         {
-            _productNameToSearch = value;
+             _productNameToSearch = value;
             if (!string.IsNullOrWhiteSpace(_productNameToSearch) &&
                 _productNameToSearch.Length > 2)
             {
                 ViewProducts();
             }
-        } 
+        }
     }
+
 
     private List<Product>? _products;
     private Product? selectedProduct;
 
     [Parameter]
-    public EventCallback<List<Product>> OnSearchProducts { get; set; }
-    [Parameter]
-    public EventCallback<Product> OnSelectProduct { get; set; }
+    public EventCallback<List<Product>> OnSearchProducts{ get; set; }
 
     [Parameter]
     public bool DisplaySearchResult { get; set; } = false;
 
+    [Parameter]
+    public EventCallback<Product> OnSelectProduct { get; set; }
+
     private async Task ViewProducts()
     {
         var products = (await ViewProductsByNameUseCase
-         .ExecuteAsync(productNameToSearch?? string.Empty))?.ToList();
+            .ExecuteAsync(productNameToSearch??string.Empty))?.ToList();
 
         await OnSearchProducts.InvokeAsync(products);
         _products = products;

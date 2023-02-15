@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IMS.UseCases.Inventories
+namespace IMS.UseCases
 {
     public class AddInventoryUseCase : IAddInventoryUseCase
     {
@@ -17,8 +17,10 @@ namespace IMS.UseCases.Inventories
         {
             this.inventoryRepository = inventoryRepository;
         }
+
         public async Task ExecuteAsync(Inventory inventory)
         {
+
             await inventoryRepository.AddInventoryAsync(inventory);
         }
     }

@@ -20,7 +20,7 @@ namespace IMS.UseCases.Products
 
         public async Task<List<Product>> ExecuteAsync(string name = "")
         {
-            return await productRepository.GetProductsByNameAsync(name);
+            return await this.productRepository.GetProductsByNameAsync(name);
         }
     }
 }

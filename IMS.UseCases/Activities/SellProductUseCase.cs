@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IMS.UseCases.Activities
+namespace IMS.UseCases
 {
     public class SellProductUseCase : ISellProductUseCase
     {
@@ -16,20 +16,19 @@ namespace IMS.UseCases.Activities
 
         public SellProductUseCase(
             IProductTransactionRepository productTransactionRepository,
-            IProductRepository productRepository)
+            IProductRepository productRepository
+            )
         {
             this.productTransactionRepository = productTransactionRepository;
-            ProductRepository = productRepository;
+            this.productRepository = productRepository;
         }
-
-        public IProductRepository ProductRepository { get; }
 
         public async Task ExecuteAsync(string salesOrderNumber, Product product, int quantity, string doneBy)
         {
-            await productTransactionRepository.SellProductAsync(salesOrderNumber, product, quantity, product.Price, doneBy);
+            await this.productTransactionRepository.SellProductAsync(salesOrderNumber, product, quantity, product.Price, doneBy);
 
             product.Quantity -= quantity;
-            await productRepository.UpdateProductAsync(product);
+            await this.productRepository.UpdateProductAsync(product);
         }
     }
 }

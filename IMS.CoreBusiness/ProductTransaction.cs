@@ -17,7 +17,7 @@ namespace IMS.CoreBusiness
         [Required]
         public int QuantityBefore { get; set; }
 
-        //Action taken (purhcase or produce product)
+        //Action taken (purchase or produce product)
         [Required]
         public ProductTransactionType ActivityType { get; set; }
 

@@ -42,15 +42,15 @@
 }
 
 @code {
-    private Product product;
 
+    private Product? product;
 
     [Parameter]
     public int Id { get; set; }
 
     protected override async Task OnParametersSetAsync()
     {
-        this.product = await ViewProductByIdUseCase.ExecuteAsync(this.Id);
+        this.product = await ViewProductByIdUseCase.ExecuteAsync(Id);
     }
 
     private void OnInventorySelected(List<ProductInventory> productInventories)
@@ -60,8 +60,10 @@
 
     private void OnValidSubmit()
     {
-        EditProductUseCase.ExecuteAsync(this.product);
-        NavigationManager.NavigateTo("/products");
+        if (this.product != null)
+        {
+            EditProductUseCase.ExecuteAsync(this.product);
+            NavigationManager.NavigateTo("/products");
+        }
     }
-
 }
