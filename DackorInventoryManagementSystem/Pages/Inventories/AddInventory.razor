@@ -15,17 +15,17 @@
 
         <div class="form-group">
             <lable for="name">Inventory Name</lable>
-            <InputText style="width: 300px" id="name" @bind-Value="inventory.InventoryName" class="form-control"></InputText>
+            <InputText style="width: 600px" id="name" @bind-Value="inventory.InventoryName" class="form-control"></InputText>
         </div>
 
         <div class="form-group">
             <lable for="qty">Quantity</lable>
-            <InputNumber style="width: 300px" id="qty" @bind-Value="inventory.Quantity" class="form-control"></InputNumber>
+            <InputNumber style="width: 600px" id="qty" @bind-Value="inventory.Quantity" class="form-control"></InputNumber>
         </div>
 
         <div class="form-group">
             <lable for="price">Price</lable>
-            <InputNumber style="width: 300px" id="price" @bind-Value="inventory.Price" class="form-control"></InputNumber>
+            <InputNumber style="width: 600px" id="price" @bind-Value="inventory.Price" class="form-control"></InputNumber>
         </div>
        
         <br/>
@@ -34,7 +34,7 @@
                 <br/>
                 @foreach (var size in Sizes)
                 {
-                    <InputRadio Value="size"/>
+                    <InputRadio style="width:50px" Value="size"/>
                     @size
                     <br/>
                 }
