@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IMS.Plugins.EFCore.Migrations
 {
     [DbContext(typeof(IMSContext))]
-    [Migration("20230215203849_init")]
-    partial class init
+    [Migration("20230216170145_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
