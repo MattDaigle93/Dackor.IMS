@@ -44,7 +44,9 @@ namespace IMS.Plugins.EFCore.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Size")
-                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Type")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("InventoryId");
@@ -59,7 +61,8 @@ namespace IMS.Plugins.EFCore.Migrations
                             IsItemActive = true,
                             Price = 1000.0,
                             Quantity = 1,
-                            Size = "Letter"
+                            Size = "Letter",
+                            Type = "Board"
                         },
                         new
                         {
@@ -68,7 +71,8 @@ namespace IMS.Plugins.EFCore.Migrations
                             IsItemActive = true,
                             Price = 400.0,
                             Quantity = 1,
-                            Size = "Letter"
+                            Size = "Letter",
+                            Type = "Board"
                         },
                         new
                         {
@@ -77,7 +81,8 @@ namespace IMS.Plugins.EFCore.Migrations
                             IsItemActive = true,
                             Price = 100.0,
                             Quantity = 4,
-                            Size = "Letter"
+                            Size = "Letter",
+                            Type = "Board"
                         },
                         new
                         {
@@ -86,7 +91,8 @@ namespace IMS.Plugins.EFCore.Migrations
                             IsItemActive = true,
                             Price = 50.0,
                             Quantity = 5,
-                            Size = "Letter"
+                            Size = "Letter",
+                            Type = "Board"
                         },
                         new
                         {
@@ -95,7 +101,8 @@ namespace IMS.Plugins.EFCore.Migrations
                             IsItemActive = true,
                             Price = 8000.0,
                             Quantity = 2,
-                            Size = "Letter"
+                            Size = "Letter",
+                            Type = "Board"
                         },
                         new
                         {
@@ -104,7 +111,8 @@ namespace IMS.Plugins.EFCore.Migrations
                             IsItemActive = true,
                             Price = 400.0,
                             Quantity = 5,
-                            Size = "Letter"
+                            Size = "Letter",
+                            Type = "Board"
                         });
                 });
 

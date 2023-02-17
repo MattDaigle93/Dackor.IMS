@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace IMS.Plugins.EFCore.Migrations
 {
-    public partial class Initial : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -18,7 +18,8 @@ namespace IMS.Plugins.EFCore.Migrations
                     InventoryName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Quantity = table.Column<int>(type: "int", nullable: false),
                     Price = table.Column<double>(type: "float", nullable: false),
-                    Size = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Type = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Size = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     IsItemActive = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
@@ -123,15 +124,15 @@ namespace IMS.Plugins.EFCore.Migrations
 
             migrationBuilder.InsertData(
                 table: "Inventories",
-                columns: new[] { "InventoryId", "InventoryName", "IsItemActive", "Price", "Quantity", "Size" },
+                columns: new[] { "InventoryId", "InventoryName", "IsItemActive", "Price", "Quantity", "Size", "Type" },
                 values: new object[,]
                 {
-                    { 1, "Gas Engine", true, 1000.0, 1, "Letter" },
-                    { 2, "Body", true, 400.0, 1, "Letter" },
-                    { 3, "Wheels", true, 100.0, 4, "Letter" },
-                    { 4, "Seats", true, 50.0, 5, "Letter" },
-                    { 5, "Electric Engine", true, 8000.0, 2, "Letter" },
-                    { 6, "Battery", true, 400.0, 5, "Letter" }
+                    { 1, "Gas Engine", true, 1000.0, 1, "Letter", "Board" },
+                    { 2, "Body", true, 400.0, 1, "Letter", "Board" },
+                    { 3, "Wheels", true, 100.0, 4, "Letter", "Board" },
+                    { 4, "Seats", true, 50.0, 5, "Letter", "Board" },
+                    { 5, "Electric Engine", true, 8000.0, 2, "Letter", "Board" },
+                    { 6, "Battery", true, 400.0, 5, "Letter", "Board" }
                 });
 
             migrationBuilder.InsertData(

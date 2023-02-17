@@ -7,6 +7,7 @@
         <td>@Inventory.InventoryName</td>
         <td>@Inventory.Quantity</td>
         <td>@Inventory.Price.ToString("c")</td>
+        <td>@Inventory.Type</td>
         <td>@Inventory.Size</td>
         <td>
             <button type="button" class="btn btn-light" @onclick="@(()=> EditInventory(Inventory.InventoryId))">Edit</button>

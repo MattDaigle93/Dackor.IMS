@@ -38,12 +38,12 @@ namespace IMS.Plugins.EFCore
 
             //seeding data
             modelBuilder.Entity<Inventory>().HasData(
-                new Inventory { InventoryId = 1, InventoryName = "Gas Engine", Price = 1000, Quantity = 1, Size = "Letter"},
-                new Inventory { InventoryId = 2, InventoryName = "Body", Price = 400, Quantity = 1, Size = "Letter" }, 
-                new Inventory { InventoryId = 3, InventoryName = "Wheels", Quantity = 4, Price = 100, Size = "Letter" },
-                new Inventory { InventoryId = 4, InventoryName = "Seats", Price = 50, Quantity = 5, Size = "Letter" },
-                new Inventory { InventoryId = 5, InventoryName = "Electric Engine", Price = 8000, Quantity = 2, Size = "Letter"},
-                new Inventory { InventoryId = 6, InventoryName = "Battery", Price = 400, Quantity = 5, Size = "Letter"}
+                new Inventory { InventoryId = 1, InventoryName = "Gas Engine", Price = 1000, Quantity = 1, Type = "Board", Size = "Letter"},
+                new Inventory { InventoryId = 2, InventoryName = "Body", Price = 400, Quantity = 1, Type = "Board", Size = "Letter" }, 
+                new Inventory { InventoryId = 3, InventoryName = "Wheels", Quantity = 4, Price = 100, Type = "Board", Size = "Letter" },
+                new Inventory { InventoryId = 4, InventoryName = "Seats", Price = 50, Quantity = 5, Type = "Board", Size = "Letter" },
+                new Inventory { InventoryId = 5, InventoryName = "Electric Engine", Price = 8000, Quantity = 2, Type = "Board", Size = "Letter"},
+                new Inventory { InventoryId = 6, InventoryName = "Battery", Price = 400, Quantity = 5, Type = "Board", Size = "Letter"}
             );
 
             modelBuilder.Entity<Product>().HasData(

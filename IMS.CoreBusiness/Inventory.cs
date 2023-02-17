@@ -14,9 +14,8 @@ namespace IMS.CoreBusiness
 
         [Range(0, double.MaxValue, ErrorMessage = "Price must be greater than or equal to {0}")]
         public double Price { get; set; }
-
-        [Required(ErrorMessage = "Please Select a Size.")]
-        public string Size { get; set; }
+        public string? Type { get; set; }
+        public string? Size { get; set; }
 
         public bool IsItemActive { get; set; } = true;
 

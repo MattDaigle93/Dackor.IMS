@@ -47,6 +47,7 @@ namespace IMS.Plugins.EFCore
                 inv.InventoryName = inv.InventoryName;
                 inv.Price = inventory.Price;
                 inv.Quantity = inventory.Quantity;
+                inv.Type = inventory.Type;
                 inv.Size = inventory.Size;
 
                 await db.SaveChangesAsync();
